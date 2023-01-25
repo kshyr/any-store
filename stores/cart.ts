@@ -10,7 +10,7 @@ export const useCartStore = create<CartState>((set) => ({
         ...state.cart,
         {
           id: item.id,
-          item,
+          price: item.price,
           quantity: 1,
         },
       ],

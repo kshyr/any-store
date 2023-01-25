@@ -13,14 +13,14 @@ export type Item = {
 };
 
 export type CartItem = {
-  id: number;
-  item: Item;
+  id: Item["id"];
+  price: Item["price"];
   quantity: number;
 };
 
 export type CartState = {
   cart: CartItem[];
-  addToCart: (item: Item) => void;
+  addToCart: (item: CartItem) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;

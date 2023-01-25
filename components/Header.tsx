@@ -1,3 +1,5 @@
+import Cart from "./Cart";
+
 export default function Header() {
   return (
     <header className=" sticky top-0 z-10 order-first flex h-12 items-center justify-between border-b bg-base-100 px-4 py-6">
@@ -9,7 +11,7 @@ export default function Header() {
           Store
         </h1>
       </div>
-      <div className="flex items-center"></div>
+      <Cart />
     </header>
   );
 }

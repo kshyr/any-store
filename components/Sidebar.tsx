@@ -14,20 +14,17 @@ export default function Sidebar() {
       .then((categories) => {
         setCategories(categories);
       });
-  }, []);
+  }, [setCategories]);
 
-  useEffect(() => {
-    if (categories) {
-      console.log("products", categories);
-    }
-  }, [categories]);
   return (
-    <nav className="order-first bg-base-200">
+    <nav className=" order-first bg-base-200">
       <ul className="menu w-60 border-r bg-base-100">
         {categories.map((category, i) => {
           return (
             <li key={i}>
-              <Link href={"category/" + category}>{category}</Link>
+              <Link href={"category/" + category}>
+                {category.toUpperCase().replace("-", " ")}
+              </Link>
             </li>
           );
         })}
