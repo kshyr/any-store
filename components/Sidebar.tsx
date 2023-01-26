@@ -17,8 +17,8 @@ export default function Sidebar() {
   }, [setCategories]);
 
   return (
-    <nav className=" order-first bg-base-200">
-      <ul className="menu w-60 border-r bg-base-100">
+    <nav className=" order-first border-r bg-base-200">
+      <ul className="menu w-60 bg-base-100">
         {categories.map((category, i) => {
           return (
             <li key={i}>

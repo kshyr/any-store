@@ -7,7 +7,12 @@ async function getProductsByCategory(category: string): Promise<Item[]> {
     `https://dummyjson.com/products/category/${category}`
   );
   const data = await res.json();
-  return data.products;
+  return data.products.map((product: Item) => {
+    return {
+      ...product,
+      price: Math.floor(product.price) + 0.99,
+    };
+  });
 }
 
 export default async function ProductsByCategory({
