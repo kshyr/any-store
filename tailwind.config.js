@@ -9,7 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "radial-gradient": "radial-gradient(var(--tw-gradient-stops) 0.5px)",
+      },
+      backgroundSize: {
+        dot: "10px 10px",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };

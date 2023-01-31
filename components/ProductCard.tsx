@@ -8,7 +8,7 @@ type ProductCardProps = {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="card shadow-md">
+    <div className="card border border-dashed border-accent border-opacity-25 bg-base-100 shadow-lg">
       <figure className="relative h-40 w-full">
         <Image
           src={product.thumbnail}

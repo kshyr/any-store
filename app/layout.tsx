@@ -23,7 +23,7 @@ export default function RootLayout({
         <Header />
         <div className="flex flex-1 flex-row">
           <Sidebar />
-          <main className="flex-1 bg-base-100">
+          <main className="flex-1 bg-radial-gradient from-accent to-neutral bg-dot">
             {children}
             <ModalWrapper />
           </main>
