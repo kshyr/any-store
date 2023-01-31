@@ -2,9 +2,7 @@ import ProductCard from "@/components/ProductCard";
 import { Item } from "@/types";
 
 async function getProducts(): Promise<Item[]> {
-  const res = await fetch(
-    `https://dummyjson.com/products`
-  );
+  const res = await fetch(`https://dummyjson.com/products`);
   const data = await res.json();
   return data.products.map((product: Item) => {
     return {
@@ -19,7 +17,7 @@ export default async function Home() {
   return (
     <div className="grid grid-cols-2 gap-8 p-8">
       {products?.map((product: Item) => {
-return <ProductCard key={product.id} product={product} />;
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );
