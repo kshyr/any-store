@@ -19,7 +19,7 @@ export type CartItem = Item & {
 export type CartState = {
   cart: CartItem[];
   opened: boolean;
-  addToCart: (item: CartItem) => void;
+  addToCart: (item: Item) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;

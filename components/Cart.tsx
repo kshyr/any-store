@@ -40,14 +40,14 @@ export default function Cart() {
                 : "left-4"
             } border-none py-1 px-2 font-bold text-base-300`}
           >
-            {cart.length}
+            {cart.reduce((acc, item) => acc + item.quantity, 0)}
           </div>
         </div>
 
         <p className="text-2xl font-bold">
           {cart.length > 0
             ? `Total: ${cart
-                ?.reduce((acc, item) => acc + item.price, 0)
+                ?.reduce((acc, item) => acc + item.price * item.quantity, 0)
                 .toFixed(2)}`
             : "Cart is empty"}
         </p>
