@@ -1,6 +1,5 @@
-import ProductActions from "@/components/ProductActions";
+import ProductCard from "@/components/ProductCard";
 import { Item } from "@/types";
-import Image from "next/image";
 
 async function getProductsByCategory(category: string): Promise<Item[]> {
   const res = await fetch(
@@ -26,24 +25,7 @@ export default async function ProductsByCategory({
   return (
     <div className="grid grid-cols-2 gap-8 p-8">
       {products?.map((product: Item) => {
-        return (
-          <div key={product.id} className="card shadow-md">
-            <figure className="relative h-40 w-full">
-              <Image
-                src={product.thumbnail}
-                objectFit="contain"
-                fill
-                alt={product.title}
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{product.title}</h2>
-              <p>{product.description}</p>
-              <p>{product.price}</p>
-              <ProductActions product={product} />
-            </div>
-          </div>
-        );
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );
