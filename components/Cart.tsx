@@ -1,7 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/stores/cart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Cart() {
   const cart = useCartStore((state) => state.cart);
@@ -10,7 +10,12 @@ export default function Cart() {
   const clearCart = useCartStore((state) => state.clearCart);
   const [loading, setLoading] = useState(false);
 
-  console.log(cartOpened);
+  useEffect(() => {
+    if (cartOpened && cart.length === 0) {
+      toggleOpened();
+    }
+  }, [cartOpened, cart, toggleOpened]);
+
   return (
     <div
       className={`${
