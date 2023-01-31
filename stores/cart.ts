@@ -12,8 +12,7 @@ export const useCartStore = create<CartState>()(
           cart: [
             ...state.cart,
             {
-              id: item.id,
-              price: item.price,
+              ...item,
               quantity: 1,
             },
           ],

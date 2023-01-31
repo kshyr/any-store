@@ -41,11 +41,7 @@ export default async function ProductsByCategory({
                 <h2 className="card-title">{product.title}</h2>
                 <p>{product.description}</p>
                 <p>{product.price}</p>
-                <ProductActions
-                  id={product.id}
-                  price={product.price}
-                  stock={product.stock}
-                />
+                <ProductActions product={product} />
               </div>
             </div>
           );

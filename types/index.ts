@@ -12,9 +12,7 @@ export type Item = {
   images: string[];
 };
 
-export type CartItem = {
-  id: Item["id"];
-  price: Item["price"];
+export type CartItem = Item & {
   quantity: number;
 };
 
