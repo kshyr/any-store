@@ -23,7 +23,7 @@ export default async function ProductsByCategory({
   const products: Item[] = await getProductsByCategory(category);
 
   return (
-    <div className="grid grid-cols-2 gap-8 p-8">
+    <div className="page-grid">
       {products?.map((product: Item) => {
         return <ProductCard key={product.id} product={product} />;
       })}

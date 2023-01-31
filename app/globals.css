@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .page-grid {
+    @apply grid grid-cols-1 gap-8 p-8 md:grid-cols-2;
+  }
+}

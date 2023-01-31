@@ -15,7 +15,7 @@ async function getProducts(): Promise<Item[]> {
 export default async function Home() {
   const products: Item[] = await getProducts();
   return (
-    <div className="grid grid-cols-2 gap-8 p-8">
+    <div className="page-grid">
       {products?.map((product: Item) => {
         return <ProductCard key={product.id} product={product} />;
       })}
