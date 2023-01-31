@@ -2,6 +2,7 @@
 
 import { useCartStore } from "@/stores/cart";
 import { useEffect, useState } from "react";
+import { MdShoppingCart } from "react-icons/md";
 
 export default function Cart() {
   const cart = useCartStore((state) => state.cart);
@@ -20,14 +21,29 @@ export default function Cart() {
     <div
       className={`${
         cart.length > 0 && "collapse-arrow"
-      } collapse -my-2 text-right`}
+      } collapse -mt-4 text-right`}
     >
       <input
         type="checkbox"
         checked={cartOpened}
         onChange={cart.length > 0 ? toggleOpened : () => null}
       />
-      <div className="collapse-title">
+      <div className="collapse-title flex items-center justify-end gap-2">
+        <div className=" relative -mt-1 h-14 w-14">
+          <MdShoppingCart className="h-full w-full" />
+          <div
+            className={`badge-outline badge badge-lg absolute top-2 ${
+              cart.length > 19
+                ? "left-2.5"
+                : cart.length > 9
+                ? "left-3"
+                : "left-4"
+            } border-none py-1 px-2 font-bold text-base-300`}
+          >
+            {cart.length}
+          </div>
+        </div>
+
         <p className="text-2xl font-bold">
           {cart.length > 0
             ? `Total: ${cart
@@ -38,11 +54,11 @@ export default function Cart() {
       </div>
       {cart.length > 0 && (
         <div
-          className={`collapse-content rounded-b-md shadow-inner ${
+          className={`collapse-content -mt-3 rounded-b-md shadow-inner ${
             cartOpened && "border-l border-r border-b"
           } bg-base-300`}
         >
-          <div className="mt-2 flex flex-col items-start justify-center">
+          <div className="mt-2 flex max-h-[60vh] flex-col items-start justify-center overflow-y-auto p-4">
             {cart.map((item) => {
               return (
                 <div

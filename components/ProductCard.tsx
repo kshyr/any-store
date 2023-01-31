@@ -20,7 +20,6 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="card-body">
         <h2 className="card-title">{product.title}</h2>
         <p>{product.description}</p>
-        <p>{product.price}</p>
         <ProductActions product={product} />
       </div>
     </div>

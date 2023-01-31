@@ -11,7 +11,7 @@ export default function ProductActions({ product }: ProductActionsProps) {
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
-    <div className="card-actions">
+    <div className="card-actions mt-4">
       <button
         className="btn-primary btn gap-1"
         onClick={() => addToCart({ ...product, quantity: 3 })}
