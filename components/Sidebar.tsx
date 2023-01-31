@@ -8,14 +8,15 @@ import Link from "next/link";
 export default function Sidebar() {
   const categories = useFiltersStore((state) => state.categories);
   const setCategories = useFiltersStore((state) => state.setCategories);
-
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
   const [showSidebar, setShowSidebar] = useState(true);
 
   const isMobile = width <= 550;
 
   function handleWindowResize() {
-    setWidth(window.innerWidth);
+    if (typeof window !== "undefined") setWidth(window.innerWidth);
   }
 
   useLayoutEffect(() => {
