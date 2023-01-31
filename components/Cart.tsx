@@ -4,11 +4,14 @@ import { useCartStore } from "@/stores/cart";
 
 export default function Cart() {
   const cart = useCartStore((state) => state.cart);
+  const cartOpened = useCartStore((state) => state.opened);
+  const toggleOpened = useCartStore((state) => state.toggleOpened);
   const clearCart = useCartStore((state) => state.clearCart);
 
+  console.log(cartOpened);
   return (
     <div className="collapse-arrow collapse -my-2 text-right">
-      <input type="checkbox" />
+      <input type="checkbox" checked={cartOpened} onChange={toggleOpened} />
       <div className="collapse-title">
         <p className="text-2xl font-bold">
           Total: ${cart?.reduce((acc, item) => acc + item.price, 0).toFixed(2)}

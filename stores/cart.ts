@@ -6,7 +6,7 @@ export const useCartStore = create<CartState>()(
   persist(
     (set) => ({
       cart: [],
-
+      opened: false,
       addToCart: (item) =>
         set((state) => ({
           cart: [
@@ -31,6 +31,8 @@ export const useCartStore = create<CartState>()(
         })),
 
       clearCart: () => set({ cart: [] }),
+
+      toggleOpened: () => set((state) => ({ opened: !state.opened })),
     }),
     {
       name: "cart",

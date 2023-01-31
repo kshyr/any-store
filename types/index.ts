@@ -18,10 +18,12 @@ export type CartItem = Item & {
 
 export type CartState = {
   cart: CartItem[];
+  opened: boolean;
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
+  toggleOpened: () => void;
 };
 
 export type FilterState = {
